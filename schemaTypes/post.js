@@ -9,6 +9,7 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      description: 'keep totles short',
     }),
     defineField({
       name: 'slug',
@@ -24,6 +25,12 @@ export default defineType({
       title: 'Author',
       type: 'reference',
       to: {type: 'author'},
+    }),
+    defineField({
+      title: 'Time to read',
+      name: 'popularity',
+      type: 'number',
+      validation: (Rule) => Rule.required().lessThan(20),
     }),
     defineField({
       name: 'mainImage',
